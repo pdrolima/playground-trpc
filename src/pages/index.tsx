@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { Header } from '../components/header'
 import { trpc } from '../utils/trpc'
 
 const Home: NextPage = () => {
@@ -12,11 +13,14 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="flex items-center justify-center">
-        <h1 className="text-3xl font-bold underline mt-4">
-        Hey 👋,  {hello.data.greeting}!
-    </h1>
-    </div>
+    <>
+      <Header />
+      <div className="flex items-center justify-center">
+            <h1 className="text-3xl font-bold underline mt-4">
+                Hey 👋,  {hello.data.greeting}!
+            </h1>
+        </div>
+    </>
   )
 }
 
