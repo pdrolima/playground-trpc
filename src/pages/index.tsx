@@ -40,7 +40,6 @@ const Home: NextPage = () => {
                                 rate={restaurant.rate}
                                 logoUrl={restaurant.logoUrl}
                                 type={restaurant.foodType}
-                                deliveryFee={restaurant.deliveryFee}
                             />
                         </RestaurantCard>
                     ))}
