@@ -1,0 +1,47 @@
+export const restaurants = [
+    {
+       title: 'Outback Brasil',
+       logoUrl: 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/5a3e1a28-fca8-4166-ac73-e060d02457d5/202008102307_MqiB_i.png',
+       foodType: 'Lanches',
+       deliveryFee: 699,
+       rate: 460,
+       superRestaurant: true,
+       promotionsEnabled: false,
+    },
+    {
+        title: 'Ragazzo Express',
+        logoUrl: 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/b3cbd72d-cbe3-492d-b618-05504a0348ca/202108131001_LQUf_.jpeg',
+        foodType: 'Lanches',
+        deliveryFee: 890,
+        rate: 450,
+        superRestaurant: false,
+        promotionsEnabled: false,
+     },
+     {
+        title: 'Mc Donald\'s',
+        logoUrl: 'https://static-images.ifood.com.br/image/upload/t_high/logosgde/271a548e-1245-44cb-a5b7-b9262fef7f04/201905310805_a2bx_i.jpg',
+        foodType: 'Lanches',
+        deliveryFee: 890,
+        rate: 450,
+        superRestaurant: true,
+        promotionsEnabled: true,
+     },
+     {
+        title: 'Sobremesas do Méqui',
+        logoUrl: 'https://static-images.ifood.com.br/image/upload/t_high/logosgde/1d6ab34b-5975-4065-9fcf-01f510896e10/202109141258_PKBI_i.png',
+        foodType: 'Lanches',
+        deliveryFee: 890,
+        rate: 440,
+        superRestaurant: false,
+        promotionsEnabled: false,
+     },
+     {
+        title: 'Coco Bambu',
+        logoUrl: 'https://static-images.ifood.com.br/image/upload/t_high/logosgde/45158825-29f7-47f9-acbf-6b7ccd87cb9c/202104051949_1ali_i.png',
+        foodType: 'Frutos do Mar',
+        deliveryFee: 1490,
+        rate: 480,
+        superRestaurant: true,
+        promotionsEnabled: true,
+     }
+];
