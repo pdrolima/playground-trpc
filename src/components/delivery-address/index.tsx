@@ -12,7 +12,7 @@ export function DeliveryAddress({ onOpenModal }: DeliveryAddressProps) {
             <button className="flex items-center justify-center space-x-1" onClick={onOpenModal}>
                 <GrLocation className="text-sm"/>
                 <span className="block font-bold text-neutral-600 text-sm">
-                    Avenida dos Autonomistas, 1496
+                    Av. dos Autonomistas, 1496
                 </span>
                 <MdKeyboardArrowDown className="text-red-500 h-6 w-6"></MdKeyboardArrowDown>
             </button>
