@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Restaurant {
+  id                String    @id @default(uuid())
+  title             String
+  logoUrl           String
+  foodType          String
+  deliveryFee       Int?
+  rate              Int
+  superRestaurant   Boolean   @default(false)
+  promotionsEnabled Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime?
+}
