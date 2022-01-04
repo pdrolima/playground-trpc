@@ -10,3 +10,4 @@ Clone da homepage do [iFood](https://ifood.com.br/) utilizando as tecnologias:
 - [tRPC](https://trpc.io/)
 - [Prisma.IO](https://www.prisma.io/)
 - [TailwindCSS](https://tailwindcss.com/)
+- [Next-Auth](https://next-auth.js.org/)
