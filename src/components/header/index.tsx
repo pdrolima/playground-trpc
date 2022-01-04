@@ -1,11 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { GrLocation } from "react-icons/gr";
-import { BsHandbag } from "react-icons/bs";
-import { FaRegUser } from "react-icons/fa";
+import { Field, Form, Formik } from "formik";
+import { SearchInput } from "../core-ui/search-input";
+import { DeliveryAddress } from "../delivery-address";
+import Nav from "../core-ui/nav";
+import { NavItem } from "../core-ui/nav-item";
 
 export function Header() {
+
+    const availableMenuItems = [
+        { name: 'Restaurantes', href: '#', isActive: true },
+        { name: 'Mercado', href: '#', isActive: false },
+        { name: 'Bebidas', href: '#', isActive: false },
+        { name: 'Farmácia', href: '#', isActive: false },
+        { name: 'Express', href: '#', isActive: false },
+        { name: 'Pets', href: '#', isActive: false },
+    ];
+
+    function handleSubmit() {
+        console.log("submit");
+    }
+
     return (
         <header className="bg-white h-20 border-b border-gray-200">
             <div className="flex items-center max-w-full w-full mx-auto h-20 p-8">
@@ -19,60 +32,17 @@ export function Header() {
                         </path>
                     </svg>
                 </div>
-                <nav>
-                    <ul className="flex justify-between items-center">
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-red-500 ml-">Restaurante</a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-gray-300 ml-4 hover:text-red-500">Mercado</a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-gray-300 ml-4 hover:text-red-500">Bebidas</a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-gray-300 ml-4 hover:text-red-500">Farmácia</a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-gray-300 ml-4 hover:text-red-500">Express</a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="#">
-                               <a className="font-sans font-medium text-sm text-gray-300 ml-4 hover:text-red-500">Pets</a>
-                           </Link>
-                        </li>
-                    </ul>
-                </nav>
-                <div className="flex flex-grow relative ml-6 max-w-4xl">
-                    <input type="search" className="bg-gray-100 focus:outline-none border-none shadow w-full h-12 text-gray-600 p-4 m-0 relative"
-                    placeholder="Busque por item ou loja" />
-                </div>
-                <div className="flex items-center justify-center">
-                    <div className="cursor-pointer ml-6">
-                        <span className="uppercase text-sm text-neutral-300">entregar em</span>
-                        <div className="flex items-center justify-center">
-                            <GrLocation className="text-sm"/>
-                            <span className="block font-bold text-neutral-600 text-sm">
-                                Avenida dos Autonomistas, 1496
-                            </span>
-                            <MdKeyboardArrowDown className="text-red-500 h-6 w-6"></MdKeyboardArrowDown>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center ml-10 mt-1">
-                        <FaRegUser className="text-red-500 w-6 h-6"/>
-                        <BsHandbag className="text-red-500 w-6 font-semibold h-6 ml-6" />
-                    </div>
-                </div>
+                <Nav>
+                    {availableMenuItems.map((item, index) => (
+                        <NavItem key={index} href={item.href} isActive={item.isActive}>{item.name}</NavItem>
+                    ))}
+                </Nav>
+                <Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
+                    <Form className="flex flex-grow relative ml-6 max-w-4xl">
+                        <Field name="search" as={SearchInput} placeholder="Busque por item ou loja" />
+                    </Form>
+                </Formik>
+                <DeliveryAddress />
             </div>
         </header>
     )
