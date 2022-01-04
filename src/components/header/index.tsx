@@ -3,8 +3,11 @@ import { SearchInput } from "../core-ui/search-input";
 import { DeliveryAddress } from "../delivery-address";
 import Nav from "../core-ui/nav";
 import { NavItem } from "../core-ui/nav-item";
+interface HeaderProps {
+    onOpenModal: () => void;
+}
 
-export function Header() {
+export function Header({ onOpenModal }: HeaderProps) {
 
     const availableMenuItems = [
         { name: 'Restaurantes', href: '#', isActive: true },
@@ -42,7 +45,7 @@ export function Header() {
                         <Field name="search" as={SearchInput} placeholder="Busque por item ou loja" />
                     </Form>
                 </Formik>
-                <DeliveryAddress />
+                <DeliveryAddress onOpenModal={onOpenModal}/>
             </div>
         </header>
     )
