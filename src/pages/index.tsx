@@ -1,6 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
 import { useState } from 'react'
 import { DeliveryAddressModal } from '../components/delivery-address-modal'
 import { Header } from '../components/header'
