@@ -3,11 +3,18 @@ import { SearchInput } from "../core-ui/search-input";
 import { DeliveryAddress } from "../delivery-address";
 import Nav from "../core-ui/nav";
 import { NavItem } from "../core-ui/nav-item";
+import { useSession } from "next-auth/react";
+import { BsHandbag } from "react-icons/bs";
+import { BiUser, BiArrowFromLeft } from "react-icons/bi";
+import { SignIn } from "../sign-in";
+
 interface HeaderProps {
     onOpenModal: () => void;
 }
 
 export function Header({ onOpenModal }: HeaderProps) {
+
+    const { data: session } = useSession();
 
     const availableMenuItems = [
         { name: 'Restaurantes', href: '#', isActive: true },
@@ -46,6 +53,11 @@ export function Header({ onOpenModal }: HeaderProps) {
                     </Form>
                 </Formik>
                 <DeliveryAddress onOpenModal={onOpenModal}/>
+                <div className="flex items-center justify-center ml-5 space-x-6 mt-1">
+                   <SignIn />
+
+                    <BsHandbag className="text-red-500 w-6 font-semibold h-6" />
+                </div>
             </div>
         </header>
     )
