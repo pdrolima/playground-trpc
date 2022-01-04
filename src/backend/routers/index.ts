@@ -1,17 +1,12 @@
+import { prisma } from './../prisma';
 
 import * as trpc from "@trpc/server";
 import { z } from 'zod';
 
-export const appRouter = trpc.router().query('hello', {
-    input: z
-      .object({
-        text: z.string().nullish(),
-      })
-      .nullish(),
-    resolve({ input }) {
-      return {
-        greeting: `hello ${input?.text ?? 'world'}`,
-      };
+export const appRouter = trpc.router().query('getRestaurants', {
+    resolve({ ctx }) {
+
+      return prisma.restaurant.findMany();
     },
   });
 

@@ -1,15 +1,19 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import { useState } from 'react'
 import { DeliveryAddressModal } from '../components/delivery-address-modal'
 import { Header } from '../components/header'
 import { trpc } from '../utils/trpc'
+import { BsStarFill } from 'react-icons/bs'
+import { RestaurantCard } from '../components/restaurant-card'
+import { RestaurantCardBody } from '../components/restaurant-card-body'
 
 const Home: NextPage = () => {
 
-  const hello = trpc.useQuery(['hello', { text: 'I am tRPC' }]);
+  const restaurants = trpc.useQuery(['getRestaurants']);
   const [isDeliveryAddressModalOpen, setIsDeliveryAddressModalOpen] = useState(false);
 
-  if (!hello.data) {
+  if (!restaurants.data) {
       return <div>Loading...</div>
   }
 
@@ -24,12 +28,27 @@ const Home: NextPage = () => {
   return (
     <>
       <Header onOpenModal={handleOpenDeliveryAddressModal}/>
-      <div className="flex items-center justify-center">
-            <h1 className="text-3xl font-bold underline mt-4">
-                Hey 👋,  {hello.data.greeting}!
-            </h1>
+       <main className="flex items-center justify-center mx-auto">
+        <div className="mt-40">
+            <section>
+                <h2 className="text-lg font-bold mb-5">Lojas</h2>
+                <div className="grid grid-cols-3 gap-5 mx-auto">
+                    {restaurants.data.map(restaurant => (
+                        <RestaurantCard key={restaurant.id}>
+                            <RestaurantCardBody
+                                title={restaurant.title}
+                                rate={restaurant.rate}
+                                logoUrl={restaurant.logoUrl}
+                                type={restaurant.foodType}
+                                deliveryFee={restaurant.deliveryFee}
+                            />
+                        </RestaurantCard>
+                    ))}
+                </div>
+            </section>
         </div>
-        <DeliveryAddressModal isOpen={isDeliveryAddressModalOpen} onRequestClose={handleCloseDeliveryAddressModal} />
+       </main>
+      <DeliveryAddressModal isOpen={isDeliveryAddressModalOpen} onRequestClose={handleCloseDeliveryAddressModal} />
     </>
   )
 }

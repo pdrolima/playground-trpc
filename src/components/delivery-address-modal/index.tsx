@@ -18,7 +18,7 @@ export function DeliveryAddressModal({
     }
 
     return (
-          <Modal
+        <Modal
             isOpen={isOpen}
             onRequestClose={onRequestClose}
             ariaHideApp={false}
