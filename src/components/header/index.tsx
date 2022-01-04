@@ -41,7 +41,7 @@ export function Header({ onOpenModal }: HeaderProps) {
                     ))}
                 </Nav>
                 <Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
-                    <Form className="flex flex-grow relative ml-6 max-w-4xl">
+                    <Form className="flex flex-grow relative ml-6">
                         <Field name="search" as={SearchInput} placeholder="Busque por item ou loja" />
                     </Form>
                 </Formik>
