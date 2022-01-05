@@ -34,18 +34,16 @@ const Home: NextPage = () => {
                 <h2 className="text-lg font-bold mb-5">Famosos no iFood</h2>
                 <div className="flex items-start justify-start space-x-5 mx-auto overflow-x-auto">
                     {restaurants.data.map(restaurant => (
-                        <>
-                            <div key={restaurant.id} className="p-1">
-                                <img src={restaurant.logoUrl} alt={restaurant.title} className="w-20 max-w-[20rem] mx-auto h-20 rounded-full border border-gray-300"/>
-                                <span className="block text-xs text-ellipsis py-4 text-center">{restaurant.title}</span>
-                            </div>
-                        </>
+                        <div key={restaurant.id}>
+                            <img src={restaurant.logoUrl} alt={restaurant.title} className="w-20 max-w-[20rem] mx-auto h-20 rounded-full border border-gray-300"/>
+                            <span className="block text-xs text-ellipsis py-4 text-center">{restaurant.title}</span>
+                        </div>
                     ))}
                 </div>
             </section>
             <section className="mt-10">
                 <h2 className="text-lg font-bold mb-5">Lojas</h2>
-                <div className="grid grid-cols-3 gap-5 mx-auto">
+                <div className="grid grid-cols-3 gap-3">
                     {restaurants.data.map(restaurant => (
                         <RestaurantCard key={restaurant.id}>
                             <RestaurantCardBody
