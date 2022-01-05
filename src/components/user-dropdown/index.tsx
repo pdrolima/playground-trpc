@@ -100,7 +100,7 @@ export function UserDropdown() {
                         className={classNames(active ? 'text-red-500' : 'text-gray-500', 'font-normal flex space-x-8 px-4 py-2 text-lg transition-all delay-50')}
                         >
                         <SupportIcon className="w-7 h-7 font-normal"/>
-                        <span>Pagamento</span>
+                        <span>Ajuda</span>
                     </MyLink>
                 )}
                 </Menu.Item>
