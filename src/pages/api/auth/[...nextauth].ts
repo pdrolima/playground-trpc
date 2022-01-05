@@ -11,4 +11,5 @@ export default NextAuth({
   jwt: {
     secret: process.env.SIGNIN_KEY,
    },
+   secret: process.env.SIGNIN_KEY
 })
