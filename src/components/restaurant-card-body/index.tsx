@@ -20,7 +20,7 @@ export function RestaurantCardBody({ title, rate, logoUrl, type, deliveryFee }: 
                 <span className="text-base font-semibold">{ title}</span>
                     <div className="flex items-center justify-center text-sm pt-1">
                         <span className="text-yellow-600 font-bold text-md">
-                            <BsStarFill className="inline-block w-[10px] h-[10px] mr-2 relative" />
+                            <BsStarFill className="inline-block w-[10px] h-[10px] mr-2" />
                              { rate / 100}
                         </span>
                         <span className="mr-2 ml-2">•</span>
