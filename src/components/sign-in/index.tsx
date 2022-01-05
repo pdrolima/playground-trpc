@@ -1,5 +1,6 @@
 import { useSession, signIn } from "next-auth/react";
 import { BiUser, BiArrowFromLeft } from "react-icons/bi";
+import { UserDropdown } from "../user-dropdown";
 
 export function SignIn() {
 
@@ -10,8 +11,6 @@ export function SignIn() {
              <BiArrowFromLeft className="text-red-500 w-6 h-6"/>
         </button>
     ) : (
-       <button type="button">
-            <BiUser className="text-red-500 w-6 h-6"/>
-       </button>
+       <UserDropdown />
     );
 }

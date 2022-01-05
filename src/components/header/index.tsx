@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { BsHandbag } from "react-icons/bs";
 import { BiUser, BiArrowFromLeft } from "react-icons/bi";
 import { SignIn } from "../sign-in";
+import { UserDropdown } from "../user-dropdown";
 
 interface HeaderProps {
     onOpenModal: () => void;
@@ -54,7 +55,6 @@ export function Header({ onOpenModal }: HeaderProps) {
             <DeliveryAddress onOpenModal={onOpenModal}/>
             <div className="flex items-center justify-center ml-5 space-x-6 mt-1">
                 <SignIn />
-
                 <BsHandbag className="text-red-500 w-6 font-semibold h-6" />
             </div>
         </header>
