@@ -28,11 +28,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Header onOpenModal={handleOpenDeliveryAddressModal}/>
-       <main className="flex items-center justify-center mx-auto">
-        <div className="mt-40">
+       <main className="flex items-center justify-center">
+        <div className="mx-auto max-w-7xl mt-40">
             <section>
                 <h2 className="text-lg font-bold mb-5">Famosos no iFood</h2>
-                <div className="flex items-start justify-start space-x-5 mx-auto">
+                <div className="flex items-start justify-start space-x-5 mx-auto overflow-x-auto">
                     {restaurants.data.map(restaurant => (
                         <>
                             <div key={restaurant.id} className="p-1">
